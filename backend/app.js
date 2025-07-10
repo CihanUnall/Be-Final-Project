@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
+import mongoose from "mongoose";
 import { connectDB } from "./db/mongoose.connect.js";
 import { welcomeRouter } from "./router/welcomeRouter.js";
 
@@ -15,6 +16,15 @@ app.use(
     credentials: true,
   })
 );
+// Middleware
+app.use(cors());
+app.use(express.json());
+
+// Routes
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+app.use("/api/cart", cartRoutes);
+app.use("/api/order", orderRoutes);
 app.get("/", welcomeRouter);
 
 connectDB();
