@@ -6,7 +6,7 @@
 
 - [Kushtrim Bilali](https://github.com/Kushtrim2024)
 
-- [Melissa Kebi](hhttps://github.com/MelissaKebi)
+- [Melissa Kebi](https://github.com/MelissaKebi)
 
 - [Cihan Ünal](https://github.com/CihanUnall)
 
