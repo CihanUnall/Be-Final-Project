@@ -1,6 +1,6 @@
-## Be-Final-Project
+# Be-Final-Project
 
-### Dci_fbw_wd24_d07 Be Final Project
+## Dci_fbw_wd24_d07 Be Final Project
 
 - [Randy Born](https://github.com/RandyBorn)
 
