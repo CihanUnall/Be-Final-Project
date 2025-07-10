@@ -6,7 +6,7 @@
 
 - [Kushtrim Bilali](https://github.com/Kushtrim2024)
 
-- [Melissa Kebi](hhttps://github.com/MelissaKebi)
+- [Melissa Kebi](https://github.com/MelissaKebi)
 
 - [Cihan Ünal](https://github.com/CihanUnall)
 
@@ -19,7 +19,7 @@ Wenn du möchtest, kann ich dir als Nächstes Folgendes erstellen:
 :aktenordner: Eine Projektstruktur (Ordner + Dateien)
 :ziegelsteine: Die MongoDB-Modelle (User, Product, Cart, Order)
 :stecker: Beispiel-API-Routen (Express.js)
-:reagenzglas: Ein kl
+:reagenzglas: Ein kleine
 
 Ziel des Projekts:
 Eine REST-API für einen kleinen Webshop, in dem:
