@@ -1,6 +1,6 @@
 
 ###Register
-POST http://localhost:5517/api/auth/signup
+POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {
@@ -11,7 +11,7 @@ Content-Type: application/json
 
 
 ###login
-POST http://localhost:5517/api/auth/login 
+POST http://localhost:3000/api/auth/login 
 Content-Type: application/json
 
 {
@@ -19,7 +19,7 @@ Content-Type: application/json
   "password": "Ci1238967."
 }
 
-POST http://localhost:5517/api/products
+POST http://localhost:3000/api/products
 Content-Type: application/json
 
 {
@@ -31,15 +31,15 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:5517/api/products
+GET http://localhost:3000/api/products
 Content-Type: application/json
 
 ###
-GET http://localhost:5517/api/products/6871016ae50d8e0dfcd59798
+GET http://localhost:3000/api/products/6871016ae50d8e0dfcd59798
 Content-Type: application/json
 
 ###
-PUT http://localhost:5517/api/products/6874c5f85b1f6922fe5b1dc6
+PUT http://localhost:3000/api/products/6874c5f85b1f6922fe5b1dc6
 Content-Type: application/json
 
 {
@@ -50,5 +50,5 @@ Content-Type: application/json
   "stock": 40
 }   
 ###
-DELETE http://localhost:5517/api/products/6874c5f85b1f6922fe5b1dc6
+DELETE http://localhost:3000/api/products/6874c5f85b1f6922fe5b1dc6
 

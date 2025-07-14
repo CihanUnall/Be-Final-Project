@@ -1,14 +1,16 @@
 import express from "express";
-import logger from "./db/middleware/logger.js";
-import authRoutes from "./routes/authRoutes.js";
-import errorHandler from "./db/middleware/errorMiddleware.js";
+import logger from "./middleware/logger.js";
+import authRoutes from "./routes/auth.js";
+import errorHandler from "./middleware/errorMiddleware.js";
 import dotenv from "dotenv";
 dotenv.config();
 import cors from "cors";
 import { connectDB } from "./db/mongoose.connect.js";
-import authRoutes from "./router/auth.js";
+import orderRouter from "./routes/orderRouter.js";
+import cartRouter from "./routes/cartRouter.js";
+import productRoutes from "./routes/productRoutes.js";
 
-
+const PORT = process.env.PORT || 3000;
 const app = express();
 app.use(express.json());
 app.use(
@@ -17,17 +19,17 @@ app.use(
     credentials: true,
   })
 );
+
+// Routes
+app.use("/api/order", orderRouter);
+app.use("/api/cart", cartRouter);
+app.use("/api/auth", authRoutes);
+app.use("/api/products", productRoutes);
+
 // Datenbank verbinden
 connectDB();
 //  Logger aktivieren
 app.use(logger);
-
-app.use("/api/auth", authRoutes);
-app.use("/api/products", productRoutes);
-
-//  Willkommen Controller
-
-
 app.use(errorHandler);
 
-app.listen(3000, () => console.log("Server läuft auf Port 3000"));
+app.listen(PORT, () => console.log(`Server läuft auf Port ${PORT}`));
