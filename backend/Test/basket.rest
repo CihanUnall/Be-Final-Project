@@ -1,17 +1,32 @@
+### 📦 Create a Product
+POST http://localhost:3000/api/products
+Content-Type: application/json
+
+{
+  "name": "Test Product",
+  "description": "This is a test product for cart operations.",
+  "price": 654.99,
+  "category": "Electronics",
+  "stock": 110
+}
+
+###
 
 ### 📥 Add Product to Cart
 POST http://localhost:3000/api/cart
 Content-Type: application/json
 
 {
-  "productId": "64fa1234abcd5678ef901237",
-  "quantity": 60
+  "productId": "687505df32322c1a10193671",
+  "quantity": 56
 }
+
+###
 
 ### 🛒 View Cart
 GET http://localhost:3000/api/cart
 
+###
 
-### 📦 Order Now
+### 📦 Place Order
 POST http://localhost:3000/api/order
-
