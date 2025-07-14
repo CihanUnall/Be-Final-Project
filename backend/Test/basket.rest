@@ -1,0 +1,17 @@
+
+### 📥 Add Product to Cart
+POST http://localhost:5517/api/cart
+Content-Type: application/json
+
+{
+  "productId": "64fa1234abcd5678ef901237",
+  "quantity": 60
+}
+
+### 🛒 View Cart
+GET http://localhost:5517/api/cart
+
+
+### 📦 Order Now
+POST http://localhost:5517/api/order
+

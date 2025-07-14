@@ -1,9 +1,9 @@
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-import mongoose from "mongoose";
 import { connectDB } from "./db/mongoose.connect.js";
-import { welcomeRouter } from "./router/welcomeRouter.js";
+import orderRouter from "./routes/orderRouter.js";
+import cartRouter from "./routes/cartRouter.js";
 
 const app = express();
 const PORT = 5517;
@@ -17,15 +17,11 @@ app.use(
   })
 );
 // Middleware
-app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use("/api/auth", authRoutes);
-app.use("/api/products", productRoutes);
-app.use("/api/cart", cartRoutes);
-app.use("/api/order", orderRoutes);
-app.get("/", welcomeRouter);
+app.use("/api/order", orderRouter);
+app.use("/api/cart", cartRouter);
 
 connectDB();
 
