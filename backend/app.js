@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
 import { connectDB } from "./db/mongoose.connect.js";
-import { welcomeRouter } from "./router/welcomeRouter.js";
+import productRoutes from "./routes/productRoutes.js";
 
 const app = express();
 const PORT = 5517;
@@ -15,7 +15,8 @@ app.use(
     credentials: true,
   })
 );
-app.get("/", welcomeRouter);
+
+app.use("/api/products", productRoutes);
 
 connectDB();
 
