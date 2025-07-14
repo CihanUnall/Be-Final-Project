@@ -31,7 +31,7 @@ export const addToCart = async (req, res) => {
 
 export const getCart = async (req, res) => {
   try {
-    const cart = await Cart.findOne(); // 👈 populate kaldırıldı
+    const cart = await Cart.findOne().populate("items.productId");
 
     if (!cart || cart.items.length === 0) {
       return res.status(200).json({ items: [] });
