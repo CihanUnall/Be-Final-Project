@@ -1,5 +1,4 @@
 import Product from "../models/Product.js";
-
 export const createProduct = async (req, res) => {
   try {
     const { name, description, price, category, stock } = req.body;
@@ -101,3 +100,4 @@ export const deleteProduct = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
