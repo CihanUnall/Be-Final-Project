@@ -1,28 +1,24 @@
 import express from "express";
 import logger from "./db/middleware/logger.js";
-import authRoutes from "./router/authRoutes.js";
+import authRoutes from "./routes/authRoutes.js";
 import errorHandler from "./db/middleware/errorMiddleware.js";
 import dotenv from "dotenv";
+dotenv.config();
 import cors from "cors";
 import { connectDB } from "./db/mongoose.connect.js";
-import productRoutes from "./routes/productRoutes.js";
+import authRoutes from "./router/auth.js";
 
 
 const app = express();
 app.use(express.json());
-
-
-dotenv.config();
 app.use(
   cors({
     origin: "http://localhost:7134",
     credentials: true,
   })
 );
-
-app.use("/api/products", productRoutes);
-
-
+// Datenbank verbinden
+connectDB();
 //  Logger aktivieren
 app.use(logger);
 
