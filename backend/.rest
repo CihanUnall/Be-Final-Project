@@ -2,11 +2,11 @@ POST http://localhost:5517/api/products
 Content-Type: application/json
 
 {
-  "name": "Sample Product3",
-  "description": "This is a sample product2.",
+  "name": "Product4",
+  "description": "This is a sample product4.",
   "price": 10.99,
-  "category": "Sample Category2",
-  "stock": 70
+  "category": "Category4",
+  "stock": 30
 }
 
 ###
@@ -18,16 +18,16 @@ GET http://localhost:5517/api/products/6871016ae50d8e0dfcd59798
 Content-Type: application/json
 
 ###
-PUT http://localhost:5517/api/products/6874c27b5b1f6922fe5b1dc3
+PUT http://localhost:5517/api/products/6874c5f85b1f6922fe5b1dc6
 Content-Type: application/json
 
 {
-  "name": "Updated Product3",
-  "description": "This is an updated product3 description.",
-  "price": 15.99,
-  "category": "Updated Category",
-  "stock": 20
+  "name": "Updated Product4",
+  "description": "This is an updated product4 description.",
+  "price": 9.99,
+  "category": "Updated Category4",
+  "stock": 40
 }   
 ###
-DELETE http://localhost:5517/api/products/6871016ae50d8e0dfcd59798
+DELETE http://localhost:5517/api/products/6874c5f85b1f6922fe5b1dc6
 
