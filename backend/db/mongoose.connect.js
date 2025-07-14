@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectDB = async () => {
-  const uri = process.env.DB_MONGO_URI;
+  const uri = process.env.MONGODB_URI;
 
   if (!uri || uri === "ENTER YOUR CONNECTION STRING HERE") {
     console.error("❌ No valid MongoDB connection string found in .env!");
