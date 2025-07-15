@@ -1,6 +1,5 @@
 "use client";
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
@@ -12,7 +11,6 @@ export default function LoginPage() {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-
     try {
       const res = await fetch("http://localhost:3000/api/auth/login", {
         method: "POST",
@@ -31,7 +29,7 @@ export default function LoginPage() {
       localStorage.setItem("token", data.token);
 
       // Weiterleitung (z. B. Dashboard)
-      router.push("/dashboard");
+      router.push("/user");
     } catch (err) {
       console.error("Login Fehler:", err);
       setErrorMsg("Serverfehler");
@@ -67,10 +65,9 @@ export default function LoginPage() {
           className="border rounded w-full py-2 px-3 mb-6"
           required
         />
-
         <button
           type="submit"
-          className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700"
+          className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
         >
           Login
         </button>
