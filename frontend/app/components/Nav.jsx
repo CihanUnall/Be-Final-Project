@@ -13,12 +13,17 @@ function Nav() {
           </li>
           |
           <li>
-            <Link href="/product">Product</Link>
+            <Link href="/products">Product</Link>
           </li>
           |
           <li>
             <Link href="/register">Register</Link>
           </li>
+          |
+          <li>
+            <Link href="/admin">Admin</Link>
+          </li>
+
         </ul>
       </div>
       <div className="ml-6 bg-blue-300 p-2 rounded-md">
