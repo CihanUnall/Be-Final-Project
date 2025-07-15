@@ -1,10 +1,7 @@
 "use client";
 
-import React from "react";
-
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
-
 
 import Link from "next/link";
 import Basket from "../components/Basket.jsx";
@@ -60,18 +57,12 @@ function Nav() {
           <li>
             <Link href="/admin">Admin</Link>
           </li>
-
         </ul>
       </div>
 
       <div className="h-14 w-14 ml-10">
         <Basket />
       </div>
-
-
-        </ul>
-      </div>
-
     </nav>
   );
 }

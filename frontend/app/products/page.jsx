@@ -5,6 +5,9 @@ function Product() {
   const [products, setProducts] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState("");
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
   useEffect(() => {
     fetch("http://localhost:3000/api/products")
       .then((res) => res.json())
@@ -76,12 +79,18 @@ function Product() {
             <div className="mt-2 flex justify-between text-sm font-medium">
               <span>${product.price}</span>
               <span className="text-blue-600">
-                <button
-                  onClick={() => handleAddToCart(product._id)}
-                  className="text-blue-60 w-20 h-8 bg-amber-300 ml-5"
-                >
-                  Add to Cart
-                </button>
+                {token ? (
+                  <button
+                    onClick={() => handleAddToCart(product._id)}
+                    className="text-blue-60 w-20 h-8 bg-amber-300 ml-5"
+                  >
+                    Add to Cart
+                  </button>
+                ) : (
+                  <span className="text-gray-400 text-sm ml-6">
+                    You must be logged in to add to cart.
+                  </span>
+                )}
               </span>
             </div>
           </li>
