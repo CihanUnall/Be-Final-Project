@@ -2,7 +2,14 @@
 
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
+
 export default function RegisterPage() {
+  const router = useRouter();
+
+
+export default function RegisterPage() {
+
   const [form, setForm] = useState({ name: "", email: "", password: "" });
   const [message, setMessage] = useState("");
 
@@ -23,7 +30,17 @@ export default function RegisterPage() {
       const data = await res.json();
 
       if (!res.ok) throw new Error(data.message || "Etwas ist schiefgelaufen");
+
+
       setMessage("Registrierung erfolgreich!");
+
+      // Nach 1 Sekunde zur Login-Seite
+      setTimeout(() => {
+        router.push("/login");
+      }, 1000);
+
+      setMessage("Registrierung erfolgreich!");
+
     } catch (err) {
       setMessage(` ${err.message}`);
     }
@@ -31,7 +48,20 @@ export default function RegisterPage() {
 
   return (
     <div
+
+      style={{
+        maxWidth: "400px",
+        margin: "4rem auto",
+        fontFamily: "Arial",
+        textAlign: "center",
+        padding: "4rem",
+        border: "1px solid black",
+        borderRadius: "8px",
+        backgroundColor: "#f9f9f9",
+        boxShadow: "0 2px 10px rgba(0,0,0,0.1)",
+      }}
       style={{ maxWidth: "400px", margin: "4rem auto", fontFamily: "Arial" }}
+
     >
       <h2>Registrieren</h2>
       <form onSubmit={handleSubmit}>
@@ -90,7 +120,22 @@ export default function RegisterPage() {
           Registrieren
         </button>
       </form>
+
+      {message && (
+        <p
+          style={{
+            marginTop: "1rem",
+            padding: "0.75rem",
+            borderRadius: "8px",
+            color: "green",
+          }}
+        >
+          {message}
+        </p>
+      )}
+
       {message && <p style={{ marginTop: "1rem" }}>{message}</p>}
+
     </div>
   );
 }
