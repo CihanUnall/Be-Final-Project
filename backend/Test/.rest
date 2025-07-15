@@ -1,24 +1,4 @@
 
-###Register
-POST http://localhost:3000/api/auth/signup
-Content-Type: application/json
-
-{
-  "name": "CihanDci",
-  "email": "cihan@dcistudent.de",
-  "password": "Ci1238967."
-}
-
-
-###login
-POST http://localhost:3000/api/auth/login 
-Content-Type: application/json
-
-{
-  "email": "cihan@dcistudent.de",
-  "password": "Ci1238967."
-}
-
 POST http://localhost:3000/api/products
 Content-Type: application/json
 

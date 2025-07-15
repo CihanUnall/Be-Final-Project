@@ -34,7 +34,7 @@ export const getCart = async (req, res) => {
     const cart = await Cart.findOne().populate("items.productId");
 
     if (!cart || cart.items.length === 0) {
-      return res.status(200).json({ items: [] });
+      return res.status(200).json({ items: [], message: "Warenkorb ist leer" });
     }
 
     res.status(200).json(cart);
