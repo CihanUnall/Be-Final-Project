@@ -1,15 +1,52 @@
 "use client";
+
 import React from "react";
+
+import React, { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+
 import Link from "next/link";
 import Basket from "../components/Basket.jsx";
 
 function Nav() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsLoggedIn(!!token);
+  }, []);
+  const handleLogout = () => {
+    localStorage.removeItem("token");
+    setIsLoggedIn(false);
+    router.push("/login");
+  };
+
+  const handleLogin = () => {
+    router.push("/login");
+  };
   return (
     <nav>
       <div>
         <ul>
           <li>
-            <Link href="/login">Login</Link>
+            {/* <Link href="/login">Login</Link> */}
+            {isLoggedIn ? (
+              <button
+                onClick={handleLogout}
+                className="bg-transparent px-4 py-2 rounded"
+              >
+                Logout
+              </button>
+            ) : (
+              <button
+                onClick={handleLogin}
+                className="bg-transparent px-4 py-2 rounded"
+              >
+                Login
+              </button>
+            )}
           </li>
           |
           <li>
@@ -23,12 +60,18 @@ function Nav() {
           <li>
             <Link href="/admin">Admin</Link>
           </li>
+
         </ul>
       </div>
 
       <div className="h-14 w-14 ml-10">
         <Basket />
       </div>
+
+
+        </ul>
+      </div>
+
     </nav>
   );
 }
