@@ -3,8 +3,8 @@ POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {
-  "name": "sarah",
-  "email": "sarah@example.com",
+  "name": "Kushtrim",
+  "email": "Kushtrimdcistudent@dci.de",
   "password": "123456"
 }
 
@@ -13,7 +13,7 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "sarah@example.com",
+  "email": "Melidcistudent@dci.de",
   "password": "123456"
 }
 
