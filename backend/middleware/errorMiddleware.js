@@ -8,7 +8,7 @@ const errorHandler = (err, req, res, next) => {
   res.status(statusCode).json({
     message: err.message, // z. B. "User not found"
 
-    // In der Produktion soll der Stacktrace nicht mitgeschickt werden – nur ein Symbol 😄
+    // In der Produktion soll der Stacktrace nicht mitgeschickt werden – nur ein Symbol
     stack: process.env.NODE_ENV === "production" ? "🥞" : err.stack,
   });
 };
