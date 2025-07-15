@@ -43,3 +43,24 @@ export const getCart = async (req, res) => {
     res.status(500).json({ error: "The basket could not be retrieved." });
   }
 };
+export const removeCartItem = async (req, res) => {
+  try {
+    const { productId } = req.params;
+
+    const cart = await Cart.findOne();
+
+    if (!cart) return res.status(404).json({ error: "Cart not found" });
+
+    // Filtrele: bu ürün dışındakileri tut
+    cart.items = cart.items.filter(
+      (item) => item.productId.toString() !== productId
+    );
+
+    await cart.save();
+
+    res.status(200).json({ message: "Product removed from cart" });
+  } catch (err) {
+    console.error("Cart DELETE error:", err.message);
+    res.status(500).json({ error: "Failed to remove product from cart" });
+  }
+};

@@ -22,6 +22,31 @@ function Product() {
     ? products.filter((product) => product.category === selectedCategory)
     : products;
 
+  const handleAddToCart = async (productId) => {
+    try {
+      const response = await fetch("http://localhost:3000/api/cart", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          productId,
+          quantity: 1,
+        }),
+      });
+
+      if (response.ok) {
+        window.location.href = "/basket";
+      } else {
+        const err = await response.json();
+        alert("Could not add to cart:" + err.error);
+      }
+    } catch (error) {
+      console.error("Cart error:", error);
+      alert("Server Error!");
+    }
+  };
+
   return (
     <div className="flex flex-col items-center justify-center">
       <h1 className="my-2 text-2xl text-gray-800 font-bold">Product Page</h1>
@@ -51,7 +76,12 @@ function Product() {
             <div className="mt-2 flex justify-between text-sm font-medium">
               <span>${product.price}</span>
               <span className="text-blue-600">
-                <button>Add to Cart</button>
+                <button
+                  onClick={() => handleAddToCart(product._id)}
+                  className="text-blue-60 w-20 h-8 bg-amber-300 ml-5"
+                >
+                  Add to Cart
+                </button>
               </span>
             </div>
           </li>

@@ -1,8 +1,13 @@
 "use client";
+
+import React from "react";
+
 import React, { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
 
+
 import Link from "next/link";
+import Basket from "../components/Basket.jsx";
 
 function Nav() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -58,6 +63,15 @@ function Nav() {
 
         </ul>
       </div>
+
+      <div className="h-14 w-14 ml-10">
+        <Basket />
+      </div>
+
+
+        </ul>
+      </div>
+
     </nav>
   );
 }
