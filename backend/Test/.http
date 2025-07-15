@@ -3,8 +3,8 @@ POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {
-  "name": "Anna",
-  "email": "anna@example.com",
+  "name": "sarah",
+  "email": "sarah@example.com",
   "password": "123456"
 }
 
@@ -13,8 +13,16 @@ POST http://localhost:3000/api/auth/login
 Content-Type: application/json
 
 {
-  "email": "anna@example.com",
+  "email": "sarah@example.com",
   "password": "123456"
+}
+
+### logout
+POSt http://localhost:3000/api/auth/logout
+Content-Type: application/json
+
+{
+   "message": "Logout erfolgreich , Token bitte im Client löschen."
 }
 
 ### Fehlerhafter Login (falsches Passwort)
@@ -27,7 +35,7 @@ Content-Type: application/json
 }
 
 ### Fehlerhafte Registrierung (ohne E-Mail)
-POST http://localhost:3000/api/auth/register
+POST http://localhost:3000/api/auth/signup
 Content-Type: application/json
 
 {

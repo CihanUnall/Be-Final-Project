@@ -1,8 +1,7 @@
-"use client";
 import React from "react";
 
-function page() {
+const Header = () => {
   return <div></div>;
-}
+};
 
-export default page;
+export default Header;
