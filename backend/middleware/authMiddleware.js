@@ -1,7 +1,7 @@
 import jwt from "jsonwebtoken";
-import User from "../models/User.js"
+import User from "../models/User.js";
 
-export const protect = (req, res, next) => {
+export const protect = async (req, res, next) => {
   let token = req.headers.authorization.split(" ")[1];
   if (!token) {
     return res.status(401).json({ message: "Kein Token, Zugriff verweigert" });

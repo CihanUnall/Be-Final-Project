@@ -1,5 +1,4 @@
 "use client";
-
 import { useState } from "react";
 
 export default function RegisterPage() {
@@ -14,7 +13,7 @@ export default function RegisterPage() {
     e.preventDefault();
 
     try {
-      const res = await fetch("http://localhost:3000/api/auth/register", {
+      const res = await fetch("http://localhost:3000/api/auth/signup", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(form),
