@@ -7,6 +7,9 @@ export default function Basket() {
   const [placingOrder, setPlacingOrder] = useState(false);
   const [orderSuccess, setOrderSuccess] = useState(false);
 
+  const token =
+    typeof window !== "undefined" ? localStorage.getItem("token") : null;
+
   const fetchCart = async () => {
     try {
       const res = await fetch("http://localhost:3000/api/cart");
@@ -53,6 +56,16 @@ export default function Basket() {
       setPlacingOrder(false);
     }
   };
+  if (!token) {
+    return (
+      <div className="p-6 max-w-3xl mx-auto">
+        <h1 className="text-2xl font-bold mb-4">🛒 Shopping Cart</h1>
+        <p className="text-red-600 font-semibold">
+          Please log in to view your cart.
+        </p>
+      </div>
+    );
+  }
 
   return (
     <div className="p-6 max-w-3xl mx-auto">
