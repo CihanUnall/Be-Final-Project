@@ -2,6 +2,7 @@ import "./globals.css";
 import Nav from "./components/Nav.jsx";
 import Header from "./components/Header.jsx";
 import Footer from "./components/Footer.jsx";
+import { AuthProvider } from "./context/AuthContext";
 
 export const metadata = {
   title: "Be-Final-Project",
@@ -12,10 +13,12 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Header />
-        <Nav />
-        {children}
-        <Footer />
+        <AuthProvider>
+          <Header />
+          <Nav />
+          {children}
+          <Footer />
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,12 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext"; // Context'i import et
 
 export default function LoginPage() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
 
+  const { login } = useAuth(); // login fonksiyonunu context'ten al
   const router = useRouter();
 
   const handleLogin = async (e) => {
@@ -25,11 +27,9 @@ export default function LoginPage() {
         return;
       }
 
-      // Token im LocalStorage speichern
-      localStorage.setItem("token", data.token);
-
-      // Weiterleitung (z. B. Dashboard)
-      router.push("/user");
+      // Context üzerinden login işlemi
+      login(data.token); // token'ı context'e aktar
+      router.push("/user"); // yönlendir
     } catch (err) {
       console.error("Login Fehler:", err);
       setErrorMsg("Serverfehler");
@@ -37,7 +37,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center h-100 bg-gray-100">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
       <form
         onSubmit={handleLogin}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-96"
