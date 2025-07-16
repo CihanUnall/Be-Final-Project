@@ -51,7 +51,7 @@ function Product() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center mb-22">
       <h1 className="my-2 text-2xl text-gray-800 font-bold">Product Page</h1>
       <div className="mb-4">
         <label className="mr-2 font-medium">Category:</label>
@@ -82,7 +82,7 @@ function Product() {
                 {token ? (
                   <button
                     onClick={() => handleAddToCart(product._id)}
-                    className="text-blue-60 w-20 h-8 bg-amber-300 ml-5"
+                    className="text-blue-60 w-20 h-8 bg-amber-300 ml-5 border-2 rounded hover:cursor-pointer hover:bg-amber-400"
                   >
                     Add to Cart
                   </button>
