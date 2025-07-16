@@ -1,64 +1,54 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
-
+import React from "react";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useAuth } from "../context/AuthContext";
 import Basket from "../components/Basket.jsx";
 
 function Nav() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const router = useRouter();
+  const { user, logout } = useAuth();
 
-  useEffect(() => {
-    const token = localStorage.getItem("token");
-    setIsLoggedIn(!!token);
-  }, []);
   const handleLogout = () => {
-    localStorage.removeItem("token");
-    setIsLoggedIn(false);
+    logout(); // context'ten çıkış yap
     router.push("/login");
   };
 
   const handleLogin = () => {
     router.push("/login");
   };
+
   return (
-    <nav>
-      <div>
-        <ul>
-          <li>
-            {/* <Link href="/login">Login</Link> */}
-            {isLoggedIn ? (
-              <button
-                onClick={handleLogout}
-                className="bg-transparent px-4 py-2 rounded"
-              >
-                Logout
-              </button>
-            ) : (
-              <button
-                onClick={handleLogin}
-                className="bg-transparent px-4 py-2 rounded"
-              >
-                Login
-              </button>
-            )}
-          </li>
-          |
-          <li>
-            <Link href="/products">Product</Link>
-          </li>
-          |
-          <li>
-            <Link href="/register">Register</Link>
-          </li>
-          |
-          <li>
-            <Link href="/admin">Admin</Link>
-          </li>
-        </ul>
-      </div>
+    <nav className="flex justify-between items-center p-4 bg-gray-200">
+      <ul className="flex gap-4 items-center">
+        <li>
+          {user ? (
+            <button
+              onClick={handleLogout}
+              className="bg-transparent px-4 py-2 rounded"
+            >
+              Logout
+            </button>
+          ) : (
+            <button
+              onClick={handleLogin}
+              className="bg-transparent px-4 py-2 rounded"
+            >
+              Login
+            </button>
+          )}
+        </li>
+        <li>
+          <Link href="/products">Product</Link>
+        </li>
+        <li>
+          <Link href="/register">Register</Link>
+        </li>
+        <li>
+          <Link href="/admin">Admin</Link>
+        </li>
+      </ul>
 
       <div className="h-14 w-14 ml-10">
         <Basket />
