@@ -26,14 +26,14 @@ function Nav() {
           {user ? (
             <button
               onClick={handleLogout}
-              className="bg-transparent px-4 py-2 rounded"
+              className="bg-transparent px-4 py-2 rounded hover:cursor-pointer"
             >
               Logout
             </button>
           ) : (
             <button
               onClick={handleLogin}
-              className="bg-transparent px-4 py-2 rounded"
+              className="bg-transparent px-4 py-2 rounded hover:cursor-pointer"
             >
               Login
             </button>

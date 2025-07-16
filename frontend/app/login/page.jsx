@@ -37,7 +37,7 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+    <div className="flex flex-col items-center justify-center h-100 bg-gray-100">
       <form
         onSubmit={handleLogin}
         className="bg-white shadow-md rounded px-8 pt-6 pb-8 w-96"

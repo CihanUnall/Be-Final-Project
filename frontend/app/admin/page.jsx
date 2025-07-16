@@ -84,7 +84,7 @@ export default function Admin() {
   };
 
   return (
-    <div>
+    <div className="mb-22">
       <h2 className="my-4 font-bold text-gray-800 text-center text-2xl">
         Product Management
       </h2>
